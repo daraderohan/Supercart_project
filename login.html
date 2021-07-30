@@ -1,0 +1,33 @@
+<html>
+<head><title>login</title></head>
+<body>
+    {% with messages=get_flashed_messages%}
+         
+    {% endwith %}
+    <div>
+        <form method="post" action="{{url_for('login')}}">
+            {{form.hidden_tag() }}
+            <fieldset>
+                <legend>LOGIN</legend>
+                <div>
+                    {{form.username.label()}}
+                    {{form.username()}}
+                </div>
+                <div>
+                    {{form.password.label()}}
+                    {{form.password()}}
+                </div>
+                <div>
+                    {{form.remember.label()}}
+                    {{form.remember()}}
+                </div>
+                <div>
+                    {{ form.csrf_token }}
+                    {{ form.name }}
+                    {{form.submit()}}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

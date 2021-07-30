@@ -1,0 +1,30 @@
+{% extends "layout.html"%}
+{%block content%}
+    <form method="post", action="{{url_for('set_Threshold')}}">
+        <table class="table">
+            <thead class="thead-dark">
+            <th scope="col">Name of product</th>
+            <th scope="col">Price</th>
+            <th scope="col">set budget</th>
+            </thead>
+            <tbody>
+                {%for i in range(1,len):%}
+                    <div>
+                       <tr>
+                        <td>{{file[i].split(',')[0]}}</td>
+                        <td>{{file[i].split(',')[1]}}</td>
+                        <td>
+                            <label for="cart_item{{i}}"></label>
+                        <input type="number" id="cart_item{{i}}" name="cart_item{{i}}" min="0" class="form-control">
+                        </td>
+                        </tr>
+                    </div>
+                {%endfor%}
+            </tbody>
+        </table>
+            <div>
+                <input type="submit" class="btn btn-success">
+            </div>
+
+    </form>
+{%endblock%}
